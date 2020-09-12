@@ -1,0 +1,28 @@
+We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11).
+Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero.
+
+class Solution:
+    def isOneBitCharacter(self, bits: List[int]) -> bool:
+        #length of the list
+        l = len(bits)
+        
+        #corner case
+        if l==1:
+            return True
+        
+        i=0
+        for x in range(l):
+            if i<l:
+                if bits[i]==0:
+                    #when we reach the last digit and and it is 0
+                    if i==l-1:
+                        return True
+                    #if it not a last digit it represents first character
+                    else:
+                        i=i+1
+                #if it is 1 it represents second character, so jump tow digits up
+                elif bits[i]==1:
+                    i=i+2
+                
+        #if the complete list is traversed and we find that last character is not one-bit character
+        return False
