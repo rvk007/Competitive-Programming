@@ -1,0 +1,24 @@
+Given a 32-bit signed integer, reverse digits of an integer.
+
+class Solution:
+    # check the integer limit
+    def isOverflowing(self,output):
+        if output>pow(2,31)-1 or output<-1*pow(2,31):
+                return True
+            
+    def reverse(self, x: int) -> int:
+        if x<0:
+            # multiply with -1 for negative integers
+            output = -1*int((str(-1*x)[::-1]))
+            if self.isOverflowing(output):
+                output=0
+                
+            return output
+        else:
+            output = int((str(x)[::-1]))
+            if self.isOverflowing(output):
+                output=0
+                
+            return output
+        
+       
