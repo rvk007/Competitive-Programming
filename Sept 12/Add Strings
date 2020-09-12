@@ -1,0 +1,13 @@
+Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+
+# Convert string to integer
+def stringtoInteger(self,num):
+    multiplier = 10
+    intnum = 0
+    for i in num:
+        intnum = intnum*multiplier + int(i)
+        
+    return intnum
+
+def addStrings(self, num1: str, num2: str) -> str:
+    return str(self.stringtoInteger(num1) + self.stringtoInteger(num2))
